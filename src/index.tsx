@@ -8,3 +8,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+//Notes:
+// npx create-react-app my-app --template redux-typescript
+// with toolkit you dont need to add redux-thunk??
