@@ -1,7 +1,7 @@
 import app from "../../base";
 import { useEffect } from "react";
 
-export const Home = () => {
+export const Dashboard = () => {
   useEffect(() => {
     try {
       app.auth().onAuthStateChanged((user: any) => {

@@ -1,19 +1,15 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { Home } from "./pages/Home";
-import { Provider } from "react-redux";
 import { store } from "./store";
-import { Login } from "./pages/Login";
-import { SignUp } from "./pages/SignUp";
+import { Provider } from "react-redux";
 import { SignIn } from "./pages/SignIn";
+import { Dashboard } from "./pages/Dashboard";
 
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/" component={Dashboard} />
         <Route exact path="/signin" component={SignIn} />
       </Router>
     </Provider>
