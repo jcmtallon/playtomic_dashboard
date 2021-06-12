@@ -1,39 +1,45 @@
+import { useCallback, useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import app from "../../base";
-import { useCallback } from "react";
 
 export const SignIn = () => {
-  const handleLogin = useCallback(async (event) => {
-    event.preventDefault();
-    const { email, password } = event.target.elements;
-    try {
-      await app.auth().signInWithEmailAndPassword(email.value, password.value);
-      console.log("no problem");
+  const [errorMesasge, setErrorMessage] = useState(null);
 
-      const user = app.auth().currentUser;
-      console.log(user);
+  const history = useHistory();
 
-      // user?.updateProfile({
-      //   displayName: "Playtomic",
-      // });
+  //TODO: extract this logic so we can change the provider.
+  const handleLogin = useCallback(
+    async (event) => {
+      event.preventDefault();
 
-      // await app
-      //   .auth()
-      //   .currentUser?.getIdToken()
-      //   .then(function (idToken) {
+      const { email, password } = event.target.elements;
 
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
-      // history.push("/");
-    } catch (error) {
-      alert(error);
-    }
-  }, []);
+      try {
+        await app
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+        // const user = app.auth().currentUser;
+        // If user:  save data and redirect.
+        //displayName:
+        //JWT: (refresh token?)
+        //email
+
+        // console.log(user);
+      } catch (error) {
+        //TODO: Add type to error.
+        //TODO: display error message corresponding to code.  //auth/user-not-found
+        setErrorMessage(error.message);
+      }
+    },
+    [history]
+  );
 
   return (
+    // TODO: style this code
     <div>
-      <h1>Log in</h1>
+      <h1>Sign In</h1>
       <form onSubmit={handleLogin}>
         <label>
           Email
@@ -43,7 +49,9 @@ export const SignIn = () => {
           Password
           <input name="password" type="password" placeholder="Password" />
         </label>
-        <button type="submit">Log in</button>
+        <button type="submit">Sign In</button>
+        {/* TODO: display error message */}
+        {errorMesasge && <div>{errorMesasge}</div>}
       </form>
     </div>
   );
