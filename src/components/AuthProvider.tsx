@@ -1,7 +1,16 @@
 import { ReactNode, useEffect, useState } from "react";
+import jwt_decode from "jwt-decode";
+
 import { auth } from "../firebaseSetup";
 import { useTsDispatch } from "../hooks/useTsDispatch";
 import { clearSession, updateSession } from "../store/slices/session";
+
+interface JWToken {
+  name?: string;
+  auth_time: number;
+  email: string;
+  user_id: string;
+}
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -22,10 +31,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       user
         .getIdToken()
         .then((token) => {
+          const decoded = jwt_decode<JWToken>(token);
+
           const session = {
-            userName: user.displayName || undefined,
-            email: user.email || undefined,
             token: token,
+            user: {
+              name: decoded.name,
+              email: decoded.email,
+              userId: decoded.user_id,
+              authTime: decoded.auth_time,
+            },
           };
 
           dispatch(updateSession(session));

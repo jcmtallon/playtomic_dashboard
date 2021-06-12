@@ -1,14 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface Session {
-  userName?: string;
-  token?: string;
-  email?: string;
+export interface User {
+  name?: string;
+  email: string;
+  userId: string;
+  authTime: number;
 }
 
-//TODO: make it null.
+export interface Session {
+  token?: string;
+  user: User | null;
+}
 
-export const initialState: Session = {};
+export const initialState: Session = {
+  user: null,
+};
 
 const sessionSlice = createSlice({
   name: "session",

@@ -4,9 +4,9 @@ import { useTsSelector } from "../hooks/useTsSelector";
 interface PrivateRouteProps extends RouteProps {}
 
 const PrivateRoute = ({ ...routeProps }: PrivateRouteProps) => {
-  const user = useTsSelector((state) => state.session);
+  const { user } = useTsSelector((state) => state.session);
 
-  if (user.token) {
+  if (user) {
     return <Route {...routeProps} />;
   } else {
     return <Redirect to={"/signin"} />;
