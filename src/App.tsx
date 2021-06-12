@@ -11,15 +11,15 @@ import { Settings } from "./pages/Settings";
 const App = () => {
   return (
     <Provider store={store}>
-      <Router>
-        <AuthProvider>
+      <AuthProvider>
+        <Router>
           <Switch>
             <PrivateRoute exact path="/" component={Dashboard} />
             <PrivateRoute exact path="/settings" component={Settings} />
             <Route exact path="/signin" component={SignIn} />
           </Switch>
-        </AuthProvider>
-      </Router>
+        </Router>
+      </AuthProvider>
     </Provider>
   );
 };

@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { auth } from "../base";
+import { auth } from "../firebaseSetup";
 import { useTsDispatch } from "../hooks/useTsDispatch";
 import { clearSession, updateSession } from "../store/slices/session";
 
@@ -10,8 +10,6 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useTsDispatch();
-
-  console.log(isLoading);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {

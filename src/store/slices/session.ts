@@ -6,6 +6,8 @@ export interface Session {
   email?: string;
 }
 
+//TODO: make it null.
+
 export const initialState: Session = {};
 
 const sessionSlice = createSlice({

@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { Redirect } from "react-router-dom";
 
-import app from "../../base";
+import app from "../../firebaseSetup";
 import { useTsSelector } from "../../hooks/useTsSelector";
 
 export const SignIn = () => {
