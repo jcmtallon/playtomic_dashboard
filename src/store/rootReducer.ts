@@ -1,10 +1,11 @@
 import { Reducer } from "redux";
 import { combineReducers } from "redux";
+import { Session, sessionReducer } from "./slices/session";
 
 export interface RootState {
-  // session: {name: string},
+  session: Session;
 }
 
 export const rootReducer: Reducer<RootState> = combineReducers({
-  // something
+  session: sessionReducer,
 });

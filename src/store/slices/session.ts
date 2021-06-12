@@ -1,4 +1,4 @@
-import { bindActionCreators, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface Session {
   data?: string;
