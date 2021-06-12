@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 import { Redirect } from "react-router-dom";
 
-import app from "../../firebaseSetup";
 import { useTsSelector } from "../../hooks/useTsSelector";
+import { signIn } from "../../services/firebase/auth";
 
 export const SignIn = () => {
   const session = useTsSelector((state) => state.session);
@@ -13,7 +13,7 @@ export const SignIn = () => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
-      await app.auth().signInWithEmailAndPassword(email.value, password.value);
+      await signIn(email.value, password.value);
     } catch (error) {
       //TODO: display error message corresponding to code.  //auth/user-not-found
       setErrorMessage(error.message);

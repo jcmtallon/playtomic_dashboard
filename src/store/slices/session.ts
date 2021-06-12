@@ -23,11 +23,8 @@ const sessionSlice = createSlice({
     updateSession(_, action: { payload: Session }) {
       return action.payload;
     },
-    clearSession() {
-      return initialState;
-    },
   },
 });
 
-export const { updateSession, clearSession } = sessionSlice.actions;
+export const { updateSession } = sessionSlice.actions;
 export default sessionSlice.reducer;
