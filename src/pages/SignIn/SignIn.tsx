@@ -20,13 +20,6 @@ export const SignIn = () => {
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
         history.push("/");
-        // const user = app.auth().currentUser;
-        // If user:  save data and redirect.
-        //displayName:
-        //JWT: (refresh token?)
-        //email
-
-        // console.log(user);
       } catch (error) {
         //TODO: Add type to error.
         //TODO: display error message corresponding to code.  //auth/user-not-found

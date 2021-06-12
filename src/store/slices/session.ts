@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface Session {
-  data?: string;
-  error?: string; //TODO: Axios
+  displayName?: string;
+  token?: string;
+  email?: string;
 }
 
-export const initialState: Session = {
-  data: undefined,
-  error: undefined,
-};
+export const initialState: Session = {};
 
 const sessionSlice = createSlice({
   name: "session",
@@ -24,4 +22,4 @@ const sessionSlice = createSlice({
 });
 
 export const { addSession, clearSession } = sessionSlice.actions;
-export const sessionReducer = sessionSlice.reducer;
+export default sessionSlice.reducer;

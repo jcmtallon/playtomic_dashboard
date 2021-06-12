@@ -1,5 +1,6 @@
-import { rootReducer } from "./rootReducer";
 import { configureStore } from "@reduxjs/toolkit";
+
+import { rootReducer } from "./rootReducer";
 
 //Middleware
 //const middleware = [reduxThunk];
@@ -12,3 +13,6 @@ const createStore = () => {
 
 const store = createStore();
 export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type TSDispath = typeof store.dispatch;
