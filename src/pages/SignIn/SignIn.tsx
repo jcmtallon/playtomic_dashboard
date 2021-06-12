@@ -1,33 +1,28 @@
 import { useCallback, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import app from "../../base";
+import { useTsSelector } from "../../hooks/useTsSelector";
 
 export const SignIn = () => {
+  const session = useTsSelector((state) => state.session);
   const [errorMesasge, setErrorMessage] = useState(null);
 
-  const history = useHistory();
-
   //TODO: extract this logic so we can change the provider.
-  const handleLogin = useCallback(
-    async (event) => {
-      event.preventDefault();
+  const handleLogin = useCallback(async (event) => {
+    event.preventDefault();
+    const { email, password } = event.target.elements;
+    try {
+      await app.auth().signInWithEmailAndPassword(email.value, password.value);
+    } catch (error) {
+      //TODO: display error message corresponding to code.  //auth/user-not-found
+      setErrorMessage(error.message);
+    }
+  }, []);
 
-      const { email, password } = event.target.elements;
-
-      try {
-        await app
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
-      } catch (error) {
-        //TODO: Add type to error.
-        //TODO: display error message corresponding to code.  //auth/user-not-found
-        setErrorMessage(error.message);
-      }
-    },
-    [history]
-  );
+  if (session.token) {
+    return <Redirect to="/" />;
+  }
 
   return (
     // TODO: style this code

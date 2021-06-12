@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface Session {
-  displayName?: string;
+  userName?: string;
   token?: string;
   email?: string;
 }
@@ -12,8 +12,8 @@ const sessionSlice = createSlice({
   name: "session",
   initialState,
   reducers: {
-    addSession(state, action: { payload: string; type: string }) {
-      return { ...state, data: action.payload };
+    updateSession(_, action: { payload: Session }) {
+      return action.payload;
     },
     clearSession() {
       return initialState;
@@ -21,5 +21,5 @@ const sessionSlice = createSlice({
   },
 });
 
-export const { addSession, clearSession } = sessionSlice.actions;
+export const { updateSession, clearSession } = sessionSlice.actions;
 export default sessionSlice.reducer;

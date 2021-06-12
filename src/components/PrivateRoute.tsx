@@ -1,12 +1,12 @@
 import { Redirect, Route, RouteProps } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
+import { useTsSelector } from "../hooks/useTsSelector";
 
 interface PrivateRouteProps extends RouteProps {}
 
 const PrivateRoute = ({ ...routeProps }: PrivateRouteProps) => {
-  const isAuthorized = useAuth();
+  const user = useTsSelector((state) => state.session);
 
-  if (isAuthorized) {
+  if (user.token) {
     return <Route {...routeProps} />;
   } else {
     return <Redirect to={"/signin"} />;
