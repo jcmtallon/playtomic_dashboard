@@ -6,6 +6,7 @@ import { SignIn } from "./pages/SignIn";
 import { Dashboard } from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./components/AuthProvider";
+import { Settings } from "./pages/Settings";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/" component={Dashboard} />
+            <PrivateRoute exact path="/settings" component={Settings} />
             <Route exact path="/signin" component={SignIn} />
           </Switch>
         </AuthProvider>

@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import { auth } from "../../base";
 
-export const Dashboard = () => {
+export const Settings = () => {
   return (
     <div>
-      HOME
-      <Link to={"/settings"}>Settings</Link>
+      <Link to={"/"}>Home</Link>
       <button onClick={() => auth.signOut()}>Sign Out</button>
     </div>
   );
