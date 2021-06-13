@@ -26,7 +26,7 @@ export const SignIn = () => {
 
   return (
     // TODO: style this code
-    <div>
+    <div className="font-work-sans">
       <h1>Sign In</h1>
       <form onSubmit={handleLogin}>
         <label>
