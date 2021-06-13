@@ -17,6 +17,7 @@ module.exports = {
       },
       minWidth: {
         sm: "420px",
+        lg: "1024px",
       },
     },
   },

@@ -11,7 +11,7 @@ interface DashboardLayoutProps {
 
 export const DashboardLayout = (props: DashboardLayoutProps) => {
   return (
-    <div className="h-screen w-screen bg-gray-100 flex-col">
+    <div className="h-screen w-screen bg-gray-100 flex-col min-w-lg">
       <DashboardTopBar />
       <div className="flex h-full">
         <DashboardSideMenu activeTab={props.name} />
