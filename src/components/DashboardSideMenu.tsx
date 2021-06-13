@@ -3,7 +3,7 @@ import { ReactComponent as SettingsIcon } from "../assets/settings.svg";
 import { DashboardSideMenuItem } from "./DashboardSideMenuItem";
 
 interface DashboardSideMenuProps {
-  activeTab: "home" | "settings";
+  activeTab: "dashboard" | "settings";
 }
 
 export const DashboardSideMenu = ({ activeTab }: DashboardSideMenuProps) => {
@@ -13,7 +13,7 @@ export const DashboardSideMenu = ({ activeTab }: DashboardSideMenuProps) => {
         <ul>
           <DashboardSideMenuItem
             to="/"
-            isActive={activeTab === "home"}
+            isActive={activeTab === "dashboard"}
             icon={DashBoardIcon}
             labelText="Home"
           />

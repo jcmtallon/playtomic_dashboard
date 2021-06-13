@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
-import { signOut } from "../../services/firebase/auth";
+import { DashboardLayout } from "../../components/DashboardLayout";
 
 export const Settings = () => {
   return (
-    <div>
-      <Link to={"/"}>Home</Link>
-      <button onClick={() => signOut()}>Sign Out</button>
-    </div>
+    <DashboardLayout pageName="settings">
+      <div>Settings</div>
+    </DashboardLayout>
   );
 };
