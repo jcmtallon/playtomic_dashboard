@@ -16,7 +16,7 @@ export const DashboardLayout = (props: DashboardLayoutProps) => {
         <DashboardTopBar />
         <div className="flex flex-grow">
           <DashboardSideMenu activeTab={props.name} />
-          <div className="pt-6 px-6 w-full">
+          <div className="pt-6 px-6 w-full bg-gray-100">
             <div className="border-b border-gray-300 w-full pb-2 mb-6">
               <h1 className="text-2xl">{props.title}</h1>
             </div>

@@ -7,12 +7,12 @@ export interface User {
   authTime: number;
 }
 
-export interface Session {
+export interface SessionState {
   token?: string;
   user: User | null;
 }
 
-export const initialState: Session = {
+export const initialState: SessionState = {
   user: null,
 };
 
@@ -20,7 +20,7 @@ const sessionSlice = createSlice({
   name: "session",
   initialState,
   reducers: {
-    updateSession(_, action: { payload: Session }) {
+    updateSession(_, action: { payload: SessionState }) {
       return action.payload;
     },
   },

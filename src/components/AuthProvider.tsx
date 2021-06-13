@@ -1,8 +1,8 @@
 import { ReactNode, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
-import { useTsDispatch } from "../hooks/useTsDispatch";
 import { onAuthStateChange } from "../services/firebase/auth";
-import { updateSession } from "../store/slices/session";
+import { updateSession } from "../store/slices/sessionSlice";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(true);
-  const dispatch = useTsDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChange(

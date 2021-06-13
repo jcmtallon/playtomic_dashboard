@@ -1,6 +1,6 @@
 import jwt_decode from "jwt-decode";
 
-import { Session } from "../../store/slices/session";
+import { SessionState } from "../../store/slices/sessionSlice";
 import { auth } from "./setup";
 
 interface JWToken {
@@ -20,7 +20,7 @@ export const signOut = async () => {
 
 export const onAuthStateChange = (
   setIsLoading: (isLoading: boolean) => void,
-  setSession: (session: Session) => void
+  setSession: (session: SessionState) => void
 ) => {
   const unsubscribe = auth.onAuthStateChanged((user) => {
     if (!user) {
