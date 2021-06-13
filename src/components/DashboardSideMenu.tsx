@@ -1,9 +1,9 @@
-import { ReactComponent as DashBoardIcon } from "../assets/dashboard.svg";
+import { ReactComponent as HomeIcon } from "../assets/home.svg";
 import { ReactComponent as SettingsIcon } from "../assets/settings.svg";
 import { DashboardSideMenuItem } from "./DashboardSideMenuItem";
 
 interface DashboardSideMenuProps {
-  activeTab: "dashboard" | "settings";
+  activeTab: "home" | "settings";
 }
 
 export const DashboardSideMenu = ({ activeTab }: DashboardSideMenuProps) => {
@@ -13,8 +13,8 @@ export const DashboardSideMenu = ({ activeTab }: DashboardSideMenuProps) => {
         <ul>
           <DashboardSideMenuItem
             to="/"
-            isActive={activeTab === "dashboard"}
-            icon={DashBoardIcon}
+            isActive={activeTab === "home"}
+            icon={HomeIcon}
             labelText="Home"
           />
           <DashboardSideMenuItem

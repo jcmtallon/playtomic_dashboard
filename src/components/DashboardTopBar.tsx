@@ -6,7 +6,7 @@ export const DashboardTopBar = () => {
 
   return (
     <div className="w-full flex justify-between items-center bg-primary-dark text-white py-4 px-6 shadow-md">
-      <h1 className="text-xl select-none">Dashboard</h1>
+      <div className="text-xl select-none">Dashboard</div>
       <div className="flex flex-col justify-end">
         <div>{session.user?.name || "Unknown"}</div>
         <button

@@ -1,9 +1,9 @@
 import { DashboardLayout } from "../../components/DashboardLayout";
 
-export const Dashboard = () => {
+export const Home = () => {
   return (
-    <DashboardLayout pageName="dashboard">
-      <div>Dashboard</div>
+    <DashboardLayout name="home" title="Home">
+      <div>TEST</div>
     </DashboardLayout>
   );
 };
