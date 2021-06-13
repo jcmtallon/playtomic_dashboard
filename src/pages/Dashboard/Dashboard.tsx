@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom";
-import { signOut } from "../../services/firebase/auth";
+import { DashboardSideMenu } from "../../components/DashboardSideMenu";
+import { DashboardTopBar } from "../../components/DashboardTopBar";
 
 export const Dashboard = () => {
   return (
-    <div>
-      HOME
-      <Link to={"/settings"}>Settings</Link>
-      <button onClick={() => signOut()}>Sign Out</button>
+    <div className="h-screen w-screen bg-gray-100 flex-col">
+      <div className="h-full flex flex-col">
+        <DashboardTopBar />
+        <div className="flex flex-grow">
+          <DashboardSideMenu activeTab="home" />
+          <div>HOME</div>
+        </div>
+      </div>
     </div>
   );
 };
