@@ -21,7 +21,7 @@ export const initialState: RepositoriesState = {
 };
 
 const repositoriesSlice = createSlice({
-  name: "repository",
+  name: "repositories",
   initialState,
   reducers: {
     setIsFetching(state) {
