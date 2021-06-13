@@ -16,7 +16,7 @@ export const DashboardLayout = (props: DashboardLayoutProps) => {
       <div className="flex h-full">
         <DashboardSideMenu activeTab={props.name} />
         <div className="w-full h-full overflow-hidden">
-          <div className="pt-24 px-6 w-full h-full overflow-y-scroll">
+          <div className="mt-20 p-6 w-full h-full overflow-y-scroll">
             <div className="border-b border-gray-300 w-full pb-2 mb-6">
               <h1 className="text-2xl">{props.title}</h1>
             </div>
