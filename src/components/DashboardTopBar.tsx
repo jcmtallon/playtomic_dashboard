@@ -5,7 +5,7 @@ export const DashboardTopBar = () => {
   const session = useTsSelector((state) => state.session);
 
   return (
-    <div className="w-full flex justify-between items-center bg-primary-dark text-white py-4 px-6 shadow-md">
+    <div className="fixed top-0 w-full flex justify-between items-center bg-primary-dark text-white py-4 px-6 shadow-md">
       <div className="text-xl select-none">Dashboard</div>
       <div className="flex flex-col justify-end">
         <div>{session.user?.name || "Unknown"}</div>

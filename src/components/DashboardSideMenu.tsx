@@ -8,7 +8,7 @@ interface DashboardSideMenuProps {
 
 export const DashboardSideMenu = ({ activeTab }: DashboardSideMenuProps) => {
   return (
-    <div className="bg-white h-full w-44 border-r border-gray-200 shadow-lg pt-6">
+    <div className="flex-none bg-white h-full w-44 border-r border-gray-200 shadow-lg pt-24">
       <nav>
         <ul>
           <DashboardSideMenuItem
