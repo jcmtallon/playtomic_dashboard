@@ -19,7 +19,6 @@ export const SignIn = () => {
     try {
       await signIn(email.value, password.value);
     } catch (error) {
-      //TODO: display error message corresponding to code.  //auth/user-not-found
       setErrorMessage(error.message);
     }
   }, []);
@@ -29,14 +28,14 @@ export const SignIn = () => {
   }
 
   return (
-    //TODO: responsive
-    <div className="h-screen w-screen bg-gray-100 text-gray-900 flex justify-center items-center">
+    <div className="h-screen w-screen bg-gray-100 text-gray-900 flex justify-center items-center min-w-sm">
       <div className="w-96">
         <div className="flex flex-col items-center p-10">
-          <div className="w-16 m-4">
+          <div className="w-14 m-4">
             <Logo />
           </div>
           <h2 className="text-2xl font-extrabold">Sign in to your account</h2>
+          <h3 className="text-primary">Playtomic Technical Test</h3>
         </div>
 
         <div className="bg-white rounded-lg shadow-xl p-10">
