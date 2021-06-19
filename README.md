@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# Dashboard System For Playtomic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Admin dashboard sytem with an authentication layer.
 
-## Available Scripts
+Try a [live demo](https://playtomic-jcmtallon-test.netlify.app/)!
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app uses [firebase](https://firebase.google.com/) to handle the user authentication.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Create a new free app on firebase and connect it to this app by adding the provided identifiers when creating the firebase app to an `.env.local` file in the root directory.
 
-### `npm test`
+You can find an example of how to fill the `.env.local` file in `.env.local(sample)`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Install NPM packages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Run the app in the development mode
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm start
+```
 
-### `npm run eject`
+## About The Project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Sign In
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User can sign into the system with an email and password. This dashboard does not have a sign up page, so please register a user directly onto your Firebase app to test this functionality.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+User is automatically redirected to the dashboard home page when login is successful.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Sessions are persistent and you will remain signed in even if you refresh the page or close to tab.
 
-## Learn More
+![Sign In Page](images/signIn.jpg?raw=true "Sign In Page")
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Dashboard Home
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To similute a basic CRUD application, the dashboard fetches data upon loading the page. As suggested in the test instructions, data is fetched from the public Github REST API.
+
+If user is not authenticated, they get automatically redirected to the Sign In page.
+
+![Home Page](images/home.jpg?raw=true "Home Page")
+
+### Dashboard Settings
+
+To similute a basic CRUD application, the dashboard fetches data upon loading the page. As suggested in the test instructions, data is fetched from the public Github REST API.
+
+If user is not authenticated, they get automatically redirected to the Sign In page.
+
+![Settings Page](images/settings.jpg?raw=true "Settings Page")
